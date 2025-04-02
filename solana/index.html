@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solana Token Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="container">
+            <header>
+                <div class="logo-container">
+                    <img src="https://solana.com/src/img/branding/solanaLogoMark.svg" alt="Solana Logo" class="logo">
+                    <h1>Solana Token Manager</h1>
+                </div>
+                <p class="subtitle">Create, Mint, and Manage SPL Tokens on Solana Devnet</p>
+            </header>
+
+            <div class="wallet-section">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-wallet"></i>
+                        <h2>Wallet Connection</h2>
+                    </div>
+                    <div class="wallet-info">
+                        <button id="connectWalletBtn" class="button primary-button">
+                            <i class="fas fa-plug"></i>
+                            Connect Wallet
+                        </button>
+                        <div id="walletDetails" class="hidden">
+                            <div class="wallet-content">
+                                <p><i class="fas fa-address-card"></i> Address: <span id="walletAddress"></span></p>
+                                <p><i class="fas fa-coins"></i> Balance: <span id="walletBalance">0</span> SOL</p>
+                            </div>
+                            <button id="disconnectWalletBtn" class="button secondary-button">
+                                <i class="fas fa-plug"></i>
+                                Disconnect
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tokenOperations" class="hidden">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-coins"></i>
+                            <h2>Token Operations</h2>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button id="createTokenBtn" class="button primary-button">
+                                <i class="fas fa-plus-circle"></i>
+                                Create New Token
+                            </button>
+                            <div id="mintAddress" class="info-text hidden"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mintAmount">Amount to Mint</label>
+                            <div class="input-group">
+                                <input type="number" id="mintAmount" placeholder="Enter amount" min="1">
+                                <i class="fas fa-coins input-icon"></i>
+                            </div>
+                            <button id="mintTokensBtn" class="button primary-button">
+                                <i class="fas fa-mint"></i>
+                                Mint Tokens
+                            </button>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipientAddress">Recipient Address</label>
+                            <div class="input-group">
+                                <input type="text" id="recipientAddress" placeholder="Enter Solana address">
+                                <i class="fas fa-user input-icon"></i>
+                            </div>
+                            <label for="sendAmount">Amount to Send</label>
+                            <div class="input-group">
+                                <input type="number" id="sendAmount" placeholder="Enter amount" min="1">
+                                <i class="fas fa-paper-plane input-icon"></i>
+                            </div>
+                            <button id="sendTokensBtn" class="button primary-button">
+                                <i class="fas fa-paper-plane"></i>
+                                Send Tokens
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="transactionHistory" class="card hidden">
+                    <div class="card-header">
+                        <i class="fas fa-history"></i>
+                        <h3>Transaction History</h3>
+                    </div>
+                    <div id="transactionList"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2024 Developer Harsh. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <div id="notification" class="notification hidden"></div>
+
+    <!-- Scripts -->
+    <script src="https://bundle.run/buffer@6.0.3"></script>
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+    <script src="https://bundle.run/structy@0.1.0"></script>
+    <script src="app.js"></script>
+</body>
+</html> 
